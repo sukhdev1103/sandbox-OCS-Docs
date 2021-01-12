@@ -1,5 +1,5 @@
 ---
-title: OSIsoft.Identity.Storage.Controllers v20210112.26
+title: OSIsoft.Identity.Storage.Controllers v20210112.27
 language_tabs: []
 toc_footers: []
 includes: []
@@ -6161,11 +6161,7 @@ HEAD /api/v1/Tenants/{tenantId}/Users
 
 <a id="opIdUsers_GetUsersStatus"></a>
 
-Get invitation statuses for multiple users. Optionally
-            restrict it only to users of a specific invitation status.
-            The User status can be: InvitationAccepted (0),  NoInvitation (1),
-            InvitationNotSent (2), InvitationSent (3), InvitationExpired (4).
-            DocuPipe-test.
+[object Object]
 
 ### Request
 ```text 
