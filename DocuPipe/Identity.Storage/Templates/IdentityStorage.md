@@ -1,5 +1,5 @@
 ---
-title: OSIsoft.Identity.Storage.Controllers v20210112.24
+title: OSIsoft.Identity.Storage.Controllers v20210112.25
 language_tabs: []
 toc_footers: []
 includes: []
@@ -6212,6 +6212,17 @@ GET /api/v1/Tenants/{tenantId}/Users/Status
     }
   }
 ]
+```
+
+> 400 Response
+
+```json
+{
+  "OperationId": "docupipe-test",
+  "Error": "Error message.",
+  "Reason": "Reason that caused error.",
+  "Resolution": "Possible solution for the error."
+}
 ```
 
 ## GET Users
