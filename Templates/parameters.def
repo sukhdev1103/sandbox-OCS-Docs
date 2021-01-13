@@ -1,0 +1,37 @@
+{{= data.tags.section }}
+<h3 id="{{=data.operationUniqueSlug}}-parameters">Parameters</h3>
+
+{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? p.required }}`{{=p.safeType}} {{=p.name}}`<br/>{{=p.shortDesc}}</br></br>{{?}}{{?}}{{~}}
+{{~ data.parameters :p}}{{? p.name !== 'body'}}{{? !p.required }}`[optional] {{=p.safeType}} {{=p.name}}`<br/>{{=p.shortDesc}}</br></br>{{?}}{{?}}{{~}}
+
+{{? data.longDescs }}
+#### Detailed descriptions
+{{~ data.parameters :p}}{{? p.shortDesc !== p.description}}
+**{{=p.name}}**: {{=p.description}}{{?}}
+{{~}}{{?}}
+
+{{~ data.parameters :p}}
+
+{{? p.schema && p.schema.enum }}
+{{~ p.schema.enum :e}}
+{{ var entry = {}; entry.name = p.name; entry.value = e; data.enums.push(entry); }}
+{{~}}
+{{?}}
+
+{{? p.schema && p.schema.items && p.schema.items.enum }}
+{{~ p.schema.items.enum :e}}
+{{ var entry = {}; entry.name = p.name; entry.value = e; data.enums.push(entry); }}
+{{~}}
+{{?}}
+
+{{~}}
+
+{{? data.enums && data.enums.length }}
+#### Enumerated Values
+
+|Parameter|Value|
+|---|---|
+{{~ data.enums :e}}|{{=e.name}}|{{=data.utils.toPrimitive(e.value)}}|
+{{~}}
+{{?}}
+{{= data.tags.endSection }}
